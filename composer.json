@@ -1,17 +1,9 @@
 {
-    "name": "digital-creative/collapsible-resource-manager",
-    "description": "A custom sidebar menu with collapsible groups",
+    "name": "rafael/collapsible-resource-manager",
+    "description": "A Laravel Nova tool.",
     "keywords": [
         "laravel",
-        "nova",
-        "sidebar",
-        "collapse",
-        "collapsible"
-    ],
-    "authors": [
-        {
-            "name": "Rafael Milewski"
-        }
+        "nova"
     ],
     "license": "MIT",
     "require": {
@@ -19,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "DigitalCreative\\CollapsibleResourceManager\\": "src/"
+            "Rafael\\CollapsibleResourceManager\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "DigitalCreative\\CollapsibleResourceManager\\CollapsibleResourceManagerServiceProvider"
+                "Rafael\\CollapsibleResourceManager\\ToolServiceProvider"
             ]
         }
     },

@@ -1,9 +1,10 @@
 <?php
 
-namespace DigitalCreative\CollapsibleResourceManager\Resources;
+namespace Rafael\CollapsibleResourceManager\Resources;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
+use Rafael\CollapsibleResourceManager\Resources\AbstractResource;
 
 class TopLevelResource extends AbstractResource
 {

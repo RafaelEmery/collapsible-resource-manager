@@ -1,6 +1,6 @@
 <?php
 
-namespace DigitalCreative\CollapsibleResourceManager\Resources;
+namespace Rafael\CollapsibleResourceManager\Resources;
 
 class Group extends TopLevelResource
 {

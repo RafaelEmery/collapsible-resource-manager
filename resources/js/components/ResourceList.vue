@@ -1,7 +1,9 @@
 <template>
 
+    <!-- Este componente trabalha com varios casos, já que as listas são diferentes para cada componente -->
     <ul class="list-reset">
 
+        <!-- Faz um for com todos os Resources -->
         <li class="leading-tight pt-4 text-sm" v-for="resource of resources" :class="{ 'ml-8': !recursive }">
 
             <collapsible-resource-manager v-if="resource.type === 'group'"

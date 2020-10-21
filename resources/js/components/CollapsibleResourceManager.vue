@@ -4,6 +4,7 @@
 
         <component v-if="data.label && isTopLevel" v-bind="topLevelLink"
                    @click="toggleTopLevel"
+                   v-on-clickaway="clickAway"
                    :class="{ 'cursor-pointer': isTopCollapsible }"
                    class="flex flex-1 items-center font-normal text-white mb-2 text-base no-underline relative">
 
@@ -19,30 +20,32 @@
                 <span class="flex text-white sidebar-label">
                     {{ data.label }}
                 </span>
-
+                
                 <CollapsibleIndicator :expanded="topExpanded" :visible="isTopCollapsible"/>
 
             </Badge>
 
         </component>
+ 
+        <SlideXLeftTransition :duration="150">
 
-        <CollapseTransition :duration="150">
-
-            <ResourceList class="resources-only"
+            <ResourceList class="resources-only custom-top-level w-sidebar"
                           v-if="isTopLevel && data.resources.length && (!isTopCollapsible || topExpanded)"
                           :resources="data.resources"
                           :recursive="recursive"
-                          :remember-menu-state="rememberMenuState"/>
+                          :remember-menu-state="rememberMenuState">
+            </ResourceList>
 
-        </CollapseTransition>
+        </SlideXLeftTransition>
 
         <template v-if="isGroup && data.resources.length">
 
-            <h4 class="relative select-none ml-8 mt-4 text-xs text-white-50% uppercase tracking-wide cursor-pointer"
+            <h4 class="relative select-none ml-8 mt-4 text-xs text-white tracking-wide cursor-pointer"
                 v-if="data.label"
-                @click="toggleGroup(data.id)">
+                @click="toggleGroup(data.id)"
+                @click.stop>
 
-                <CollapsibleIndicator :expanded="activeMenu[data.id]" :visible="isTopCollapsible"/>
+                <CollapsibleIndicator :expanded="activeMenu[data.id]" :visible="isTopCollapsible" />
 
                 <Badge :label="data.badge">
                     {{ data.label }}
@@ -55,7 +58,7 @@
                 <ResourceList v-if="activeMenu[data.id]"
                               :resources="data.resources"
                               :recursive="recursive"
-                              :remember-menu-state="rememberMenuState"/>
+                              :remember-menu-state="rememberMenuState"/>                
 
             </CollapseTransition>
 
@@ -67,18 +70,23 @@
 
 <script>
 
-    import { CollapseTransition } from 'vue2-transitions'
+    import { CollapseTransition, SlideXLeftTransition } from 'vue2-transitions' 
+    import { mixin as clickaway } from 'vue-clickaway'
     import ResourceList from './ResourceList'
     import Badge from './Badge'
     import CollapsibleIndicator from './CollapsibleIndicator'
 
     export default {
         name: 'CollapsibleResourceManager',
-        components: { CollapsibleIndicator, CollapseTransition, ResourceList, Badge },
+
+        components: { CollapsibleIndicator, CollapseTransition, ResourceList, Badge, SlideXLeftTransition },
+
+        mixins: [ clickaway ],
+
         props: {
             data: { type: Object, required: true },
             rememberMenuState: { type: Boolean, default: false },
-            recursive: { type: Boolean, default: false }
+            recursive: { type: Boolean, default: false },
         },
         data() {
             return {
@@ -115,6 +123,7 @@
                 return this.data.type === 'group'
             },
             isTopLevel() {
+                //Para o TopLevel
                 return this.data.type === 'top_level'
             },
             cacheKey() {
@@ -145,12 +154,18 @@
         methods: {
             toggleTopLevel() {
                 if (this.isTopCollapsible) {
-                    this.topExpanded = !this.topExpanded
+                    this.topExpanded = !this.topExpanded;
+                    this.color =  '#23263C';
                 }
             },
             toggleGroup(id) {
                 this.activeMenu[ id ] = !this.activeMenu[ id ]
-            }
+            },
+            clickAway() {
+                if (this.topExpanded) {
+                    this.topExpanded = !this.topExpanded;
+                }
+            },
         }
     }
 
@@ -174,4 +189,18 @@
         margin-top: 0;
     }
 
+    /* Customized TopLevelResource for side slide */
+    .custom-top-level {
+        background-color: var(--background-blue-dark);
+
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+
+        margin-left: 12.20rem;
+        padding-right: 0.5rem;
+        z-index: 999;
+    }
+
 </style>
+
