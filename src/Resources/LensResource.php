@@ -1,10 +1,10 @@
 <?php
 
-namespace Rafael\CollapsibleResourceManager\Resources;
+namespace RafaelEmery\CollapsibleResourceManager\Resources;
 
 use Laravel\Nova\Lenses\Lens;
 use Laravel\Nova\Resource;
-use Rafael\CollapsibleResourceManager\Resources\AbstractResource;
+use RafaelEmery\CollapsibleResourceManager\Resources\AbstractResource;
 
 class LensResource extends AbstractResource
 {

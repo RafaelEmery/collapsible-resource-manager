@@ -1,6 +1,6 @@
 <?php
 
-namespace Rafael\CollapsibleResourceManager\Resources;
+namespace RafaelEmery\CollapsibleResourceManager\Resources;
 
 use Closure;
 use Illuminate\Support\Fluent;
