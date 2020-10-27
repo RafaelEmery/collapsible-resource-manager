@@ -1,8 +1,8 @@
 <?php
 
-namespace RafaelEmery\CollapsibleResourceManager;
+namespace Rafael\CollapsibleResourceManager;
 
-use RafaelEmery\CollapsibleResourceManager\Resources\TopLevelResource;
+use Rafael\CollapsibleResourceManager\Resources\TopLevelResource;
 use Illuminate\View\View;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Nova;

@@ -1,12 +1,12 @@
 <?php
 
-namespace RafaelEmery\CollapsibleResourceManager;
+namespace Rafael\CollapsibleResourceManager;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
-use RafaelEmery\CollapsibleResourceManager\Http\Middleware\Authorize;
+use Rafael\CollapsibleResourceManager\Http\Middleware\Authorize;
 
 class ToolServiceProvider extends ServiceProvider
 {

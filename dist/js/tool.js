@@ -668,7 +668,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.top_level ul li[data-v-3ba98300]:first-child {\n    padding-top: 0;\n}\n.group ul li[data-v-3ba98300]:first-child {\n    padding-top: 1rem;\n}\n.group h4[data-v-3ba98300] {\n    margin-left: 0;\n}\n.group h4[data-v-3ba98300]:first-child {\n    margin-top: 0;\n}\n\n/* Customized TopLevelResource for side slide */\n.custom-top-level[data-v-3ba98300] {\n    background-color: var(--background-blue-dark);\n\n    position: absolute;\n    top: 60px;\n    bottom: 0;\n\n    margin-left: 12.20rem;\n    padding-right: 0.5rem;\n    z-index: 999;\n}\n\n", ""]);
+exports.push([module.i, "\n.top_level ul li[data-v-3ba98300]:first-child {\n    padding-top: 0;\n}\n.group ul li[data-v-3ba98300]:first-child {\n    padding-top: 1rem;\n}\n.group h4[data-v-3ba98300] {\n    margin-left: 0;\n}\n.group h4[data-v-3ba98300]:first-child {\n    margin-top: 0;\n}\n\n/* Customized TopLevelResource for side slide */\n.custom-top-level[data-v-3ba98300] {\n    background-color: var(--background-blue-dark);\n\n    position: absolute;\n    top: 60px;\n    bottom: 0;\n\n    margin-left: 12.25rem;\n    padding-right: 0.5rem;\n    z-index: 999;\n}\n\n/* #23263C */\n\n\n", ""]);
 
 // exports
 
@@ -793,6 +793,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -800,6 +802,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+var primaryTopLevelColor = '#2B3646';
+var selectedTopLevelColor = '#23263C';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'CollapsibleResourceManager',
@@ -816,7 +821,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     data: function data() {
         return {
             topExpanded: this.data.expanded,
-            activeMenu: _defineProperty({}, this.data.id, this.data.expanded)
+            activeMenu: _defineProperty({}, this.data.id, this.data.expanded),
+            color: primaryTopLevelColor
         };
     },
     created: function created() {
@@ -878,7 +884,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         toggleTopLevel: function toggleTopLevel() {
             if (this.isTopCollapsible) {
                 this.topExpanded = !this.topExpanded;
-                this.color = '#23263C';
+
+                if (this.color === primaryTopLevelColor) {
+                    this.color = selectedTopLevelColor;
+                } else {
+                    this.color = primaryTopLevelColor;
+                }
             }
         },
         toggleGroup: function toggleGroup(id) {
@@ -887,6 +898,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         clickAway: function clickAway() {
             if (this.topExpanded) {
                 this.topExpanded = !this.topExpanded;
+                this.color = primaryTopLevelColor;
             }
         }
     }
@@ -14097,6 +14109,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -14239,8 +14252,8 @@ var render = function() {
       return _c(
         "li",
         {
-          staticClass: "leading-tight pt-4 text-sm",
-          class: { "ml-8": !_vm.recursive }
+          staticClass: "leading-tight pt-4 pl-3 text-sm",
+          class: { "ml-2": !_vm.recursive }
         },
         [
           resource.type === "group"
@@ -14426,7 +14439,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.collapsible-indicator {\n    top: -2px;\n    right: 0;\n}\nh4 .collapsible-indicator {\n    top: -5px;\n}\n\n", ""]);
+exports.push([module.i, "\n.collapsible-indicator {\n    top: -2px;\n    right: 0;\n}\nh4 .collapsible-indicator {\n    top: -5px;\n}\n\n/* .fade-enter-active, .fade-leave-active {\n    transition: opacity 10s;\n}\n\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n} */\n\n", ""]);
 
 // exports
 
@@ -14437,8 +14450,6 @@ exports.push([module.i, "\n.collapsible-indicator {\n    top: -2px;\n    right: 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
 //
 //
 //
@@ -14482,7 +14493,7 @@ var render = function() {
   return _vm.visible
     ? _c(
         "div",
-        { staticClass: "absolute flex flex-auto collapsible-indicator" },
+        { staticClass: "absolute flex flex-auto collapsible-indicator pr-2" },
         [
           _c(
             "svg",
@@ -14537,7 +14548,18 @@ var render = function() {
   return !_vm.isEmpty || _vm.data.linkTo
     ? _c(
         "div",
-        { class: [_vm.data.type, { "mb-8": _vm.isTopLevel }, "select-none"] },
+        {
+          class: [
+            _vm.data.type,
+            [{ "pt-4": _vm.isTopLevel }, { "pb-2": _vm.isTopLevel }],
+            "select-none"
+          ],
+          style: [
+            _vm.isTopLevel
+              ? { "background-color": _vm.color }
+              : { "background-color": "#23263C" }
+          ]
+        },
         [
           _vm.data.label && _vm.isTopLevel
             ? _c(
@@ -14553,9 +14575,13 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "flex flex-1 items-center font-normal text-white mb-2 text-base no-underline relative",
+                      "flex flex-1 items-center font-normal text-white mb-2 text-base no-underline relative pl-4",
                     class: { "cursor-pointer": _vm.isTopCollapsible },
-                    on: { click: _vm.toggleTopLevel }
+                    on: {
+                      click: function($event) {
+                        return _vm.toggleTopLevel()
+                      }
+                    }
                   },
                   "component",
                   _vm.topLevelLink,
@@ -14624,7 +14650,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "SlideXLeftTransition",
-            { attrs: { duration: 150 } },
+            { attrs: { duration: 350 } },
             [
               _vm.isTopLevel &&
               _vm.data.resources.length &&
@@ -14649,7 +14675,7 @@ var render = function() {
                       "h4",
                       {
                         staticClass:
-                          "relative select-none ml-8 mt-4 text-xs text-white tracking-wide cursor-pointer",
+                          "relative select-none ml-8 mt-4 text-lg text-white tracking-wide cursor-pointer",
                         on: {
                           click: [
                             function($event) {

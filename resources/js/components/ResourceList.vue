@@ -4,7 +4,8 @@
     <ul class="list-reset">
 
         <!-- Faz um for com todos os Resources -->
-        <li class="leading-tight pt-4 text-sm" v-for="resource of resources" :class="{ 'ml-8': !recursive }">
+        <!-- Se for um group ou resource "sozinho" -->
+        <li class="leading-tight pt-4 pl-3 text-sm" v-for="resource of resources" :class="{ 'ml-2': !recursive }">
 
             <collapsible-resource-manager v-if="resource.type === 'group'"
                                           :data="resource"

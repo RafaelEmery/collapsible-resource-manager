@@ -1,8 +1,8 @@
 <?php
 
-namespace RafaelEmery\CollapsibleResourceManager\Resources;
+namespace Rafael\CollapsibleResourceManager\Resources;
 
-use RafaelEmery\CollapsibleResourceManager\Resources\AbstractResource;
+use Rafael\CollapsibleResourceManager\Resources\AbstractResource;
 
 class InternalLink extends AbstractResource
 {

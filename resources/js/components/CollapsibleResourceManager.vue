@@ -1,12 +1,14 @@
 <template>
 
-    <div v-if="!isEmpty || data.linkTo" :class="[ data.type, { 'mb-8': isTopLevel }, 'select-none' ]">
+    <div v-if="!isEmpty || data.linkTo" 
+         :class="[ data.type, [ { 'pt-4': isTopLevel }, {'pb-2': isTopLevel} ], 'select-none']" 
+         :style="[ isTopLevel ? { 'background-color': color } : { 'background-color': '#23263C' } ]">
 
         <component v-if="data.label && isTopLevel" v-bind="topLevelLink"
-                   @click="toggleTopLevel"
+                   @click="toggleTopLevel()"
                    v-on-clickaway="clickAway"
                    :class="{ 'cursor-pointer': isTopCollapsible }"
-                   class="flex flex-1 items-center font-normal text-white mb-2 text-base no-underline relative">
+                   class="flex flex-1 items-center font-normal text-white mb-2 text-base no-underline relative pl-4">
 
             <div v-if="data.icon" class="sidebar-icon" v-html="data.icon"/>
 
@@ -27,7 +29,7 @@
 
         </component>
  
-        <SlideXLeftTransition :duration="150">
+        <SlideXLeftTransition :duration="350">
 
             <ResourceList class="resources-only custom-top-level w-sidebar"
                           v-if="isTopLevel && data.resources.length && (!isTopCollapsible || topExpanded)"
@@ -38,9 +40,9 @@
 
         </SlideXLeftTransition>
 
-        <template v-if="isGroup && data.resources.length">
+        <template v-if="isGroup && data.resources.length" style="background-color: #23263C">
 
-            <h4 class="relative select-none ml-8 mt-4 text-xs text-white tracking-wide cursor-pointer"
+            <h4 class="relative select-none ml-8 mt-4 text-lg text-white tracking-wide cursor-pointer"
                 v-if="data.label"
                 @click="toggleGroup(data.id)"
                 @click.stop>
@@ -76,6 +78,9 @@
     import Badge from './Badge'
     import CollapsibleIndicator from './CollapsibleIndicator'
 
+    const primaryTopLevelColor = '#2B3646';
+    const selectedTopLevelColor = '#23263C'; 
+
     export default {
         name: 'CollapsibleResourceManager',
 
@@ -91,7 +96,8 @@
         data() {
             return {
                 topExpanded: this.data.expanded,
-                activeMenu: { [ this.data.id ]: this.data.expanded }
+                activeMenu: { [ this.data.id ]: this.data.expanded },
+                color: primaryTopLevelColor
             }
         },
         created() {
@@ -155,7 +161,12 @@
             toggleTopLevel() {
                 if (this.isTopCollapsible) {
                     this.topExpanded = !this.topExpanded;
-                    this.color =  '#23263C';
+                    
+                    if (this.color === primaryTopLevelColor) {
+                        this.color = selectedTopLevelColor;
+                    } else {
+                        this.color = primaryTopLevelColor;
+                    }
                 }
             },
             toggleGroup(id) {
@@ -164,8 +175,12 @@
             clickAway() {
                 if (this.topExpanded) {
                     this.topExpanded = !this.topExpanded;
+                    this.color = primaryTopLevelColor; 
                 }
             },
+            // toggleselectedTopLevelColor() {
+                
+            // }
         }
     }
 
@@ -197,10 +212,13 @@
         top: 60px;
         bottom: 0;
 
-        margin-left: 12.20rem;
+        margin-left: 12.25rem;
         padding-right: 0.5rem;
         z-index: 999;
     }
+
+    /* #23263C */
+    
 
 </style>
 
