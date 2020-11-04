@@ -1,12 +1,12 @@
 <?php
 
-namespace Rafael\CollapsibleResourceManager\Resources;
+namespace Deskti\CollapsibleResourceManager\Resources;
 
 use App\Nova\Resource;
 use Closure;
 use Illuminate\Http\Request;
 use Laravel\Nova\Lenses\Lens;
-use Rafael\CollapsibleResourceManager\Resources\AbstractResource;
+use Deskti\CollapsibleResourceManager\Resources\AbstractResource;
 
 class NovaResource extends AbstractResource
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Rafael\CollapsibleResourceManager\Resources;
+namespace Deskti\CollapsibleResourceManager\Resources;
 
-use Rafael\CollapsibleResourceManager\Resources\AbstractResource;
+use Deskti\CollapsibleResourceManager\Resources\AbstractResource;
 
 class ExternalLink extends AbstractResource
 {

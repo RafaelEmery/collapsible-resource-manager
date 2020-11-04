@@ -1,19 +1,17 @@
 <template>
 
-    <!-- Este componente trabalha com varios casos, já que as listas são diferentes para cada componente -->
     <ul class="list-reset">
 
-        <!-- Faz um for com todos os Resources -->
-        <!-- Se for um group ou resource "sozinho" -->
-        <li class="leading-tight pt-4 pl-3 text-sm" v-for="resource of resources" :class="{ 'ml-2': !recursive }">
+        <li class="leading-tight pt-4 pl-2" 
+            v-for="resource of resources" 
+            :class="[ { 'recursive-resources': recursive } ]">
 
             <collapsible-resource-manager v-if="resource.type === 'group'"
                                           :data="resource"
                                           :remember-menu-state="rememberMenuState"
                                           recursive/>
 
-            <div v-else-if="resource.type === 'external_link'">
-
+            <div class="external-link" v-else-if="resource.type === 'external_link'">
                 <a class="relative text-white text-left no-underline dim block"
                    :href="resource.url"
                    :target="resource.target">
@@ -39,18 +37,45 @@
 
             </div>
 
-            <router-link v-else
-                        class="relative text-white text-left no-underline dim block"
+            <span v-else>
+                
+                <div v-if="resource.hasNoGroup" class="flex items-center">
+                    <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="2" cy="2" r="2" fill="white"/>
+                    </svg> 
+                    <router-link
+                        class="relative text-white custom-internal-link text-left no-underline dim block"
                         :to="resource.router"
                         :target="resource.target">
 
-                <div v-if="resource.icon" class="absolute resource-list-icon flex" v-html="resource.icon"/>
+                    <div v-if="resource.icon" class="absolute resource-list-icon flex" v-html="resource.icon"/>
 
-                <Badge :label="resource.badge">
-                    {{ resource.label }}
-                </Badge>
+                    <Badge :label="resource.badge">
+                        {{ resource.label }}
+                    </Badge>
 
-            </router-link>
+                    </router-link>
+                </div>
+
+                <span v-else>
+                    <router-link
+                        class="relative text-white simple-resource text-left no-underline dim block"
+                        :to="resource.router"
+                        :target="resource.target"
+                        v-slot="{ href, route, navigate, isActive, isExactActive }">
+
+                        <NavLink :active="isActive" :href="href" @click="navigate">
+                            <div v-if="resource.icon" class="absolute resource-list-icon flex" v-html="resource.icon"/>
+
+                            <Badge :label="resource.badge">
+                                {{ resource.label }}
+                            </Badge>
+                        </NavLink>                   
+
+                    </router-link>
+                </span>
+                                
+            </span>
 
         </li>
 
@@ -76,10 +101,21 @@
 
 <style>
 
+    .external-link {
+        margin-left: 1rem !important;
+    }
+
+    .custom-internal-link {
+        padding-left: 0.5rem;
+        font-weight: bold;
+    }
+
     .resource-list-icon {
         width: 15px;
-        top: -3px;
-        left: -25px;
+        top: -1px;
+        left: -30px;
+        margin-left: 0.85rem;
+        padding-bottom: 0.25rem;
     }
 
     .custom-tools * {
@@ -91,6 +127,12 @@
 
     .custom-tools svg, .custom-tools img {
         display: none;
+    }
+
+    .recursive-resources {
+        font-weight: 400 !important;
+        font-size: 0.875rem !important;
+        padding-left: 1.25rem !important;
     }
 
 </style>

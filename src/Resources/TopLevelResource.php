@@ -1,10 +1,10 @@
 <?php
 
-namespace Rafael\CollapsibleResourceManager\Resources;
+namespace Deskti\CollapsibleResourceManager\Resources;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource;
-use Rafael\CollapsibleResourceManager\Resources\AbstractResource;
+use Deskti\CollapsibleResourceManager\Resources\AbstractResource;
 
 class TopLevelResource extends AbstractResource
 {
@@ -84,6 +84,7 @@ class TopLevelResource extends AbstractResource
             'expanded' => $this->data->get('expanded', null),
             'icon' => $this->getIcon() ?: ($linkToResource ? $linkToResource->getIcon() : null),
             'linkTo' => $linkToResource,
+            'linkToPath' => $this->data->get('linkToPath'),
             'resources' => array_filter($resources),
         ];
 

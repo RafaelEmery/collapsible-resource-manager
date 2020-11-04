@@ -668,7 +668,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.top_level ul li[data-v-3ba98300]:first-child {\n    padding-top: 0;\n}\n.group ul li[data-v-3ba98300]:first-child {\n    padding-top: 1rem;\n}\n.group h4[data-v-3ba98300] {\n    margin-left: 0;\n}\n.group h4[data-v-3ba98300]:first-child {\n    margin-top: 0;\n}\n\n/* Customized TopLevelResource for side slide */\n.custom-top-level[data-v-3ba98300] {\n    background-color: var(--background-blue-dark);\n\n    position: absolute;\n    top: 60px;\n    bottom: 0;\n\n    margin-left: 12.25rem;\n    padding-right: 0.5rem;\n    z-index: 999;\n}\n\n/* #23263C */\n\n\n", ""]);
+exports.push([module.i, "\n.top_level ul li[data-v-3ba98300]:first-child {\n    padding-top: 0;\n}\n.sidebar-label[data-v-3ba98300] {\n    width: 7.5rem;\n}\n.group[data-v-3ba98300] {\n    display: inline !important;\n}\n.group ul li[data-v-3ba98300]:first-child {\n    padding-top: 1rem;\n}\n.group h4[data-v-3ba98300] {\n    margin-left: 0;\n}\n.group h4[data-v-3ba98300]:first-child {\n    margin-top: 0;\n}\n.group-icon[data-v-3ba98300] {\n    margin-right: 0.5rem;\n    margin-top: 0.5rem;\n}\n.group-header[data-v-3ba98300] {\n    font-size: 1rem;\n}\n\n/* Customized TopLevelResource for side slider */\n.custom-top-level[data-v-3ba98300] {\n    background-color: var(--background-blue-dark);\n\n    position: absolute;\n    top: 60px;\n    bottom: 0;\n\n    margin-left: 12.5rem;\n    padding-left: 0.4rem;\n    padding-right: 0.2rem;\n    z-index: 999;\n}\n\n", ""]);
 
 // exports
 
@@ -723,6 +723,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__CollapsibleIndicator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__CollapsibleIndicator__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -854,7 +880,6 @@ var selectedTopLevelColor = '#23263C';
             return this.data.type === 'group';
         },
         isTopLevel: function isTopLevel() {
-            //Para o TopLevel
             return this.data.type === 'top_level';
         },
         cacheKey: function cacheKey() {
@@ -871,6 +896,14 @@ var selectedTopLevelColor = '#23263C';
                     is: 'router-link',
                     to: this.data.linkTo.router,
                     target: this.data.linkTo.target,
+                    class: ['cursor-pointer', 'dim']
+                };
+            } else if (this.data.linkToPath) {
+
+                return {
+                    is: 'router-link',
+                    to: this.data.linkToPath.router,
+                    target: '_self',
                     class: ['cursor-pointer', 'dim']
                 };
             }
@@ -14037,7 +14070,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.resource-list-icon {\n    width: 15px;\n    top: -3px;\n    left: -25px;\n}\n.custom-tools * {\n    margin: 0;\n    padding: 0;\n    font-size: inherit;\n    position: inherit;\n}\n.custom-tools svg, .custom-tools img {\n    display: none;\n}\n\n", ""]);
+exports.push([module.i, "\n.external-link {\n    margin-left: 1rem !important;\n}\n.custom-internal-link {\n    padding-left: 0.5rem;\n    font-weight: bold;\n}\n.resource-list-icon {\n    width: 15px;\n    top: -1px;\n    left: -30px;\n    margin-left: 0.85rem;\n    padding-bottom: 0.25rem;\n}\n.custom-tools * {\n    margin: 0;\n    padding: 0;\n    font-size: inherit;\n    position: inherit;\n}\n.custom-tools svg, .custom-tools img {\n    display: none;\n}\n.recursive-resources {\n    font-weight: 400 !important;\n    font-size: 0.875rem !important;\n    padding-left: 1.25rem !important;\n}\n\n", ""]);
 
 // exports
 
@@ -14050,6 +14083,31 @@ exports.push([module.i, "\n.resource-list-icon {\n    width: 15px;\n    top: -3p
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Badge__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Badge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Badge__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14159,7 +14217,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.badge[data-v-50448ac8] {\n    background: var(--collapsible-menu-badge-color, var(--badge-blue));\n    padding: 0.15rem 0.35rem;\n    -ms-flex-item-align: center;\n        align-self: center;\n}\n.text-xxs[data-v-50448ac8] {\n    font-size: .60rem;\n    color: var(--background-blue-dark);\n}\n\n", ""]);
+exports.push([module.i, "\n.resource-label[data-v-50448ac8] {\n    width: 6.8rem;\n}\n\n/* Setting custom width to a single element Legal & Terms */\ndiv.external-link > a > div > div.resource-label[data-v-50448ac8] {\n    width: auto;\n}\n.badge[data-v-50448ac8] {\n    background: var(--collapsible-menu-badge-color, var(--badge-blue));\n    padding: 0.15rem 0.35rem;\n    margin-left: 0.3rem;\n    margin-right: 0.3rem;\n    -ms-flex-item-align: center;\n        align-self: center;\n\n    display: -webkit-box;\n\n    display: -ms-flexbox;\n\n    display: flex;\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    min-width: 52px;\n    max-width: 53px;\n}\n.text-xxs[data-v-50448ac8] {\n    font-size: .60rem;\n    font-weight: 400;\n    color: var(--background-blue-dark);\n}\n\n", ""]);
 
 // exports
 
@@ -14211,7 +14269,7 @@ var render = function() {
   return _c("div", { staticClass: "flex flex-1 items-center" }, [
     _c(
       "div",
-      { staticClass: "flex-shrink", class: { dim: _vm.dim } },
+      { staticClass: "flex-shrink resource-label", class: { dim: _vm.dim } },
       [_vm._t("default")],
       2
     ),
@@ -14220,7 +14278,7 @@ var render = function() {
       ? _c(
           "div",
           {
-            staticClass: "badge w-auto rounded-full text-xxs ml-1 self-center"
+            staticClass: "badge w-auto rounded-full text-xxs ml-2 self-center"
           },
           [_vm._v("\n        " + _vm._s(_vm.label) + "\n    ")]
         )
@@ -14252,8 +14310,8 @@ var render = function() {
       return _c(
         "li",
         {
-          staticClass: "leading-tight pt-4 pl-3 text-sm",
-          class: { "ml-2": !_vm.recursive }
+          staticClass: "leading-tight pt-4 pl-2",
+          class: [{ "recursive-resources": _vm.recursive }]
         },
         [
           resource.type === "group"
@@ -14265,7 +14323,7 @@ var render = function() {
                 }
               })
             : resource.type === "external_link"
-            ? _c("div", [
+            ? _c("div", { staticClass: "external-link" }, [
                 _c(
                   "a",
                   {
@@ -14311,31 +14369,126 @@ var render = function() {
                   1
                 )
               ])
-            : _c(
-                "router-link",
-                {
-                  staticClass:
-                    "relative text-white text-left no-underline dim block",
-                  attrs: { to: resource.router, target: resource.target }
-                },
-                [
-                  resource.icon
-                    ? _c("div", {
-                        staticClass: "absolute resource-list-icon flex",
-                        domProps: { innerHTML: _vm._s(resource.icon) }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("Badge", { attrs: { label: resource.badge } }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(resource.label) +
-                        "\n            "
+            : _c("span", [
+                resource.hasNoGroup
+                  ? _c(
+                      "div",
+                      { staticClass: "flex items-center" },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            attrs: {
+                              width: "4",
+                              height: "4",
+                              viewBox: "0 0 4 4",
+                              fill: "none",
+                              xmlns: "http://www.w3.org/2000/svg"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "2", cy: "2", r: "2", fill: "white" }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "relative text-white custom-internal-link text-left no-underline dim block",
+                            attrs: {
+                              to: resource.router,
+                              target: resource.target
+                            }
+                          },
+                          [
+                            resource.icon
+                              ? _c("div", {
+                                  staticClass:
+                                    "absolute resource-list-icon flex",
+                                  domProps: { innerHTML: _vm._s(resource.icon) }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("Badge", { attrs: { label: resource.badge } }, [
+                              _vm._v(
+                                "\n                    " +
+                                  _vm._s(resource.label) +
+                                  "\n                "
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
                     )
-                  ])
-                ],
-                1
-              )
+                  : _c(
+                      "span",
+                      [
+                        _c("router-link", {
+                          staticClass:
+                            "relative text-white simple-resource text-left no-underline dim block",
+                          attrs: {
+                            to: resource.router,
+                            target: resource.target
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var href = ref.href
+                                  var route = ref.route
+                                  var navigate = ref.navigate
+                                  var isActive = ref.isActive
+                                  var isExactActive = ref.isExactActive
+                                  return [
+                                    _c(
+                                      "NavLink",
+                                      {
+                                        attrs: { active: isActive, href: href },
+                                        on: { click: navigate }
+                                      },
+                                      [
+                                        resource.icon
+                                          ? _c("div", {
+                                              staticClass:
+                                                "absolute resource-list-icon flex",
+                                              domProps: {
+                                                innerHTML: _vm._s(resource.icon)
+                                              }
+                                            })
+                                          : _vm._e(),
+                                        _vm._v(" "),
+                                        _c(
+                                          "Badge",
+                                          { attrs: { label: resource.badge } },
+                                          [
+                                            _vm._v(
+                                              "\n                            " +
+                                                _vm._s(resource.label) +
+                                                "\n                        "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            true
+                          )
+                        })
+                      ],
+                      1
+                    )
+              ])
         ],
         1
       )
@@ -14439,7 +14592,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.collapsible-indicator {\n    top: -2px;\n    right: 0;\n}\nh4 .collapsible-indicator {\n    top: -5px;\n}\n\n/* .fade-enter-active, .fade-leave-active {\n    transition: opacity 10s;\n}\n\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n} */\n\n", ""]);
+exports.push([module.i, "\n.collapsible-indicator {\n    top: -2px;\n    right: 0;\n}\nh4 .collapsible-indicator {\n    top: -5px;\n}\n\n", ""]);
 
 // exports
 
@@ -14493,7 +14646,7 @@ var render = function() {
   return _vm.visible
     ? _c(
         "div",
-        { staticClass: "absolute flex flex-auto collapsible-indicator pr-2" },
+        { staticClass: "absolute flex flex-auto collapsible-indicator" },
         [
           _c(
             "svg",
@@ -14575,13 +14728,9 @@ var render = function() {
                       }
                     ],
                     staticClass:
-                      "flex flex-1 items-center font-normal text-white mb-2 text-base no-underline relative pl-4",
+                      "flex flex-1 items-center font-normal text-white mb-2 text-base no-underline relative pl-3",
                     class: { "cursor-pointer": _vm.isTopCollapsible },
-                    on: {
-                      click: function($event) {
-                        return _vm.toggleTopLevel()
-                      }
-                    }
+                    on: { click: _vm.toggleTopLevel }
                   },
                   "component",
                   _vm.topLevelLink,
@@ -14624,7 +14773,9 @@ var render = function() {
                     [
                       _c(
                         "span",
-                        { staticClass: "flex text-white sidebar-label" },
+                        {
+                          staticClass: "flex text-white sidebar-label font-bold"
+                        },
                         [
                           _vm._v(
                             "\n                " +
@@ -14650,13 +14801,14 @@ var render = function() {
           _vm._v(" "),
           _c(
             "SlideXLeftTransition",
-            { attrs: { duration: 350 } },
+            { attrs: { duration: 150 } },
             [
               _vm.isTopLevel &&
               _vm.data.resources.length &&
               (!_vm.isTopCollapsible || _vm.topExpanded)
                 ? _c("ResourceList", {
-                    staticClass: "resources-only custom-top-level w-sidebar",
+                    staticClass:
+                      "resources-only custom-top-level custom-sidebar",
                     attrs: {
                       resources: _vm.data.resources,
                       recursive: _vm.recursive,
@@ -14675,7 +14827,7 @@ var render = function() {
                       "h4",
                       {
                         staticClass:
-                          "relative select-none ml-8 mt-4 text-lg text-white tracking-wide cursor-pointer",
+                          "flex relative select-none ml-8 mt-4 group-header text-white tracking-wide cursor-pointer",
                         on: {
                           click: [
                             function($event) {
@@ -14688,12 +14840,24 @@ var render = function() {
                         }
                       },
                       [
-                        _c("CollapsibleIndicator", {
-                          attrs: {
-                            expanded: _vm.activeMenu[_vm.data.id],
-                            visible: _vm.isTopCollapsible
-                          }
-                        }),
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "group-icon",
+                            attrs: {
+                              width: "4",
+                              height: "4",
+                              viewBox: "0 0 4 4",
+                              fill: "none",
+                              xmlns: "http://www.w3.org/2000/svg"
+                            }
+                          },
+                          [
+                            _c("circle", {
+                              attrs: { cx: "2", cy: "2", r: "2", fill: "white" }
+                            })
+                          ]
+                        ),
                         _vm._v(" "),
                         _c("Badge", { attrs: { label: _vm.data.badge } }, [
                           _vm._v(
@@ -14701,7 +14865,14 @@ var render = function() {
                               _vm._s(_vm.data.label) +
                               "\n            "
                           )
-                        ])
+                        ]),
+                        _vm._v(" "),
+                        _c("CollapsibleIndicator", {
+                          attrs: {
+                            expanded: _vm.activeMenu[_vm.data.id],
+                            visible: _vm.isTopCollapsible
+                          }
+                        })
                       ],
                       1
                     )
@@ -14727,6 +14898,64 @@ var render = function() {
             : _vm._e()
         ],
         2
+      )
+    : _vm.data.linkToPath
+    ? _c(
+        "div",
+        {
+          class: [
+            _vm.data.type,
+            [{ "pt-4": _vm.isTopLevel }, { "pb-2": _vm.isTopLevel }],
+            "select-none"
+          ]
+        },
+        [
+          _vm.data.label && _vm.isTopLevel
+            ? _c(
+                "router-link",
+                _vm._b(
+                  {
+                    staticClass:
+                      "flex flex-1 items-center font-bold text-white mb-2 text-base no-underline relative pl-4",
+                    attrs: { to: _vm.data.linkToPath }
+                  },
+                  "router-link",
+                  _vm.topLevelLink,
+                  false
+                ),
+                [
+                  _vm.data.icon
+                    ? _c("div", {
+                        staticClass: "sidebar-icon",
+                        domProps: { innerHTML: _vm._s(_vm.data.icon) }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "Badge",
+                    {
+                      attrs: { label: _vm.data.badge, dim: _vm.data.linkToPath }
+                    },
+                    [
+                      _c(
+                        "span",
+                        { staticClass: "flex text-white sidebar-label" },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(_vm.data.label) +
+                              "\n            "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
+            : _vm._e()
+        ],
+        1
       )
     : _vm._e()
 }

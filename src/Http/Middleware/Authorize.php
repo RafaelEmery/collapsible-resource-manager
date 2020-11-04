@@ -1,9 +1,9 @@
 <?php
 
-namespace Rafael\CollapsibleResourceManager\Http\Middleware;
+namespace Deskti\CollapsibleResourceManager\Http\Middleware;
 
 use Laravel\Nova\Nova;
-use Rafael\CollapsibleResourceManager\CollapsibleResourceManager;
+use Deskti\CollapsibleResourceManager\CollapsibleResourceManager;
 
 class Authorize
 {
