@@ -11,13 +11,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Rafael\\CollapsibleResourceManager\\": "src/"
+            "Deskti\\CollapsibleResourceManager\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Rafael\\CollapsibleResourceManager\\ToolServiceProvider"
+                "Deskti\\CollapsibleResourceManager\\ToolServiceProvider"
             ]
         }
     },

@@ -127,7 +127,7 @@ abstract class AbstractResource implements JsonSerializable
         return $this->getAttribute('badge');
     }
 
-    protected function getLabel(): ?string
+    protected function getLabel()
     {
         return $this->getAttribute('label');
     }
@@ -137,9 +137,8 @@ abstract class AbstractResource implements JsonSerializable
         return $this->getAttribute('icon');
     }
 
-    protected function getAttribute(string $key): ?string
+    protected function getAttribute($key)
     {
-
         if ($this->$key) {
 
             return is_callable($this->$key) ? call_user_func($this->$key) : $this->$key;
